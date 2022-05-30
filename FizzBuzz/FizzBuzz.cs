@@ -4,9 +4,9 @@ namespace FizzBuzz
 {
     public class FizzBuzz
     {
-        public void DoFizzBuzz()
+        public void DoFizzBuzz(int maxNumber)
         {      
-            for (int i = 1; i <= 100; i++)
+            for (int i = 1; i <= maxNumber; i++)
             {
                 List<String> displayResult = new List<string>();
 
@@ -24,9 +24,15 @@ namespace FizzBuzz
                 {
                     displayResult.Add("Bang");
                 }
-                if (i % 11 == 0)
+
+                if (i % 11 == 0) 
                 {
                     displayResult.Add("Bong");
+                }
+
+                if (i % 17 == 0)
+                {
+                    displayResult.Reverse();
                 }
                 
                 if (displayResult.Count == 0)
