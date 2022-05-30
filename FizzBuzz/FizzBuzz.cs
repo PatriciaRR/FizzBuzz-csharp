@@ -15,6 +15,11 @@ namespace FizzBuzz
             }
         }
 
+        private bool StartsWithB(string testString)
+        {
+            return testString[0] == 'B';
+        }
+
         public string RulesForEachNumber(int number)
         {
             List<string> displayResult = new List<string>();
@@ -37,7 +42,21 @@ namespace FizzBuzz
                 if (IsDivisibleBy(number, 11))
                 {
                    displayResult = new List<string>{ "Bong" };
-                    
+                }
+
+                if(IsDivisibleBy(number, 13))
+                {
+                    int firstBIndex = displayResult.FindIndex(StartsWithB);
+
+                    if (firstBIndex == -1)
+                    {
+                        displayResult.Add("Fezz");
+                    }
+
+                    else 
+                    {
+                        displayResult.Insert(firstBIndex, "Fezz");
+                    }
                 }
 
                 if (IsDivisibleBy(number, 17))
