@@ -1,46 +1,41 @@
+using System;
+
 namespace FizzBuzz
 {
     public class FizzBuzz
     {
         public void DoFizzBuzz()
-        {
+        {      
             for (int i = 1; i <= 100; i++)
             {
-                if (i % 3 == 0 && i % 5 == 0) 
+                List<String> displayResult = new List<string>();
+
+                if (i % 3 == 0) 
                 {
-                    Console.WriteLine("FizzBuzz");
+                    displayResult.Add("Fizz");
                 }
 
-                else if (i % 3 == 0 && i % 7 == 0)
+                if (i % 5 == 0)
                 {
-                    Console.WriteLine("FizzBang");
+                    displayResult.Add("Buzz");
                 }
 
-                else if (i % 5 == 0 && i % 7 == 0)
+                if (i % 7 == 0)
                 {
-                    Console.WriteLine("BuzzBang");
+                    displayResult.Add("Bang");
+                }
+                if (i % 11 == 0)
+                {
+                    displayResult.Add("Bong");
+                }
+                
+                if (displayResult.Count == 0)
+                {
+                    displayResult.Add(i.ToString());
                 }
 
-                else if (i % 3 == 0) 
-                {
-                    Console.WriteLine("Fizz");
-                }
-
-                else if (i % 5 == 0)
-                {
-                    Console.WriteLine("Buzz");
-                }
-
-                else if (i % 7 == 0)
-                {
-                    Console.WriteLine("Bang");
-                }
-
-                else
-                {
-                    Console.WriteLine(i);
-                }
-
+                Console.WriteLine(string.Join("", displayResult));
+           
             }
         }
     }
