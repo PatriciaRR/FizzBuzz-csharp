@@ -1,48 +1,57 @@
-using System;
-
+//split
 namespace FizzBuzz
 {
     public class FizzBuzz
     {
+        private bool IsDivisibleBy(int nominator, int denominator)
+        {
+            return nominator % denominator == 0;
+        }
         public void DoFizzBuzz(int maxNumber)
         {      
             for (int i = 1; i <= maxNumber; i++)
             {
-                List<String> displayResult = new List<string>();
+                Console.WriteLine(RulesForEachNumber(i));
+            }
+        }
 
-                if (i % 3 == 0) 
+        public string RulesForEachNumber(int number)
+        {
+            List<string> displayResult = new List<string>();
+
+                if (IsDivisibleBy(number, 3)) 
                 {
                     displayResult.Add("Fizz");
                 }
 
-                if (i % 5 == 0)
+                if (IsDivisibleBy(number, 5))
                 {
                     displayResult.Add("Buzz");
                 }
 
-                if (i % 7 == 0)
+                if (IsDivisibleBy(number, 7))
                 {
                     displayResult.Add("Bang");
                 }
 
-                if (i % 11 == 0) 
+                if (IsDivisibleBy(number, 11))
                 {
-                    displayResult.Add("Bong");
+                   displayResult = new List<string>{ "Bong" };
+                    
                 }
 
-                if (i % 17 == 0)
+                if (IsDivisibleBy(number, 17))
                 {
                     displayResult.Reverse();
                 }
                 
                 if (displayResult.Count == 0)
                 {
-                    displayResult.Add(i.ToString());
+                    displayResult.Add(number.ToString());
                 }
 
-                Console.WriteLine(string.Join("", displayResult));
+                return string.Join("", displayResult);
            
-            }
         }
     }
 }
